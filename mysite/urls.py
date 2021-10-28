@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def favicon(request):
+    return HttpResponse('pretend-binary-data-here', content_type='image/jpeg')
 
 urlpatterns = [
+    path('favicon.ico', favicon), # added to stop favicon error
     path('admin/', admin.site.urls),
     path('', include('nyc.urls'))
 ]
