@@ -1,17 +1,26 @@
 from django.shortcuts import render
-from .boroughs import boroughs
+from django.views import View
 
-def city(request):
-    if request.method == 'GET':
-        return render(request=request, template_name='city.html', context={ 'boroughs': boroughs.keys() })
+from nyc.boroughs import boroughs
 
-def borough(request, borough):
-    if request.method == 'GET':
-        return render(request=request, template_name='borough.html', context={ 'borough': borough, 'activities': boroughs[borough].keys() })
 
-# Create your views here.
-def activity():
+class CityView(View):
+    def get(self, request):
+        return render(request=request, template_name='city.html', context={'boroughs': boroughs.keys()})
+
+
+class BoroughView(View):
+    def get(self, request, borough):
+        return render(
+            request=request,
+            template_name='borough.html',
+            context={'borough': borough, 'activities': boroughs[borough].keys()},
+        )
+
+
+class ActivityView(View):
     pass
 
-def venue():
+
+class VenueView(View):
     pass
