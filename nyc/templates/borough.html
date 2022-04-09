@@ -1,5 +1,7 @@
-<h1>{{ borough | title }}</h1>
-
+{% extends 'city.html' %}
+{% block title %}{{ borough | title }}{% endblock %}
+{% block message %}Wondering about fun activities to do in {{borough}}? Check out this directory of activities!{% endblock %}
+{% block list %}
 <ul>
     {% for activity in activities %}
     <li>
@@ -9,3 +11,5 @@
     </li>
     {% endfor %}
 </ul>
+{% endblock %}
+{% block homelink %}<a href="{% url 'city' %}">← Back to home</a>{% endblock %}

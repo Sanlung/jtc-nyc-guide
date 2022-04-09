@@ -1,3 +1,4 @@
 from django.db import models
 
-# Create your models here.
+class Borough(models.Model):
+  borough = models.CharField(max_length=50)
