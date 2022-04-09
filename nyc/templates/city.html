@@ -9,18 +9,18 @@
     <body>
         <h1>{% block title %}New York City Guide{% endblock %}</h1>
         <h4>
-            {% block message %}Wondering about fun activities to do in the
+            {% block description %}Wondering about fun activities to do in the
             big city? Check out this directory of activities in each borough!{%endblock %}
         </h4>
-        {% block list %}
         <ul>
+            {% block content %}
             {% for borough in boroughs %}
             <li>
-                <a href="{% url 'borough' borough %}">{{ borough|title }}</a>
+                <a href="{% url 'borough' borough %}">{{ borough | title }}</a>
             </li>
             {% endfor %}
+            {% endblock %}
         </ul>
-        {% endblock %}
         {% block homelink %}{% endblock %}
     </body>
 </html>
