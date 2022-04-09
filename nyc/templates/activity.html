@@ -1,9 +1,11 @@
 {% extends 'city.html' %}}
+
 {% block title %}{{ activity | title }}{% endblock %}
-{% block message %}Wondering about fun places to go for the {{activity}}
+
+{% block description %}Wondering about fun places to go for the {{activity}}
 activity in {{borough}}? Check out this directory of places!{% endblock %}
-{% block list %}
-<ul>
+
+{% block content %}
     {% for venue in venues %}
     <li>
         <a href="{% url 'venue' borough activity venue %} "
@@ -11,6 +13,6 @@ activity in {{borough}}? Check out this directory of places!{% endblock %}
         >
     </li>
     {% endfor %}
-</ul>
 {% endblock %}
+
 {% block homelink %}<a href="{% url 'city' %}">← Back to home</a>{% endblock %}
