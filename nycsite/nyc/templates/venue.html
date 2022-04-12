@@ -1,0 +1,11 @@
+{% extends 'city.html' %}}
+
+{% block title %}{{ venue | title }}{% endblock %}
+
+{% block description %}{{ description }}{% endblock %}
+
+{% block content %}
+<img src="{{img_link}}" width="400" alt="{{venue}}" />
+{% endblock %}
+
+{% block homelink %}<a href="{% url 'city' %}">← Back to home</a>{% endblock %}
